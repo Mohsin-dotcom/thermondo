@@ -9,7 +9,7 @@ const Index = ({ item, flippedCards = [], handleCardClick, handleDeleteProfile }
   const renderCardContent = () => {
     const isFlipped = flippedCards.includes(item.email);
     return (
-      <div data-testid="user-card" >
+      <div data-testid="user-card" className='d-flex flex-column justify-content-between' style={{ minHeight: "380px" }}>
         <CardFlip isFlipped={isFlipped} flipDirection="horizontal">
           <div>
             <Card.Img
@@ -21,13 +21,13 @@ const Index = ({ item, flippedCards = [], handleCardClick, handleDeleteProfile }
               <Card.Title>{`${item?.name?.first} ${item?.name?.last}`}</Card.Title>
             </Card.Body>
           </div>
-          <div className="card-back">
+          <div className="card-back p-3">
             <Card.Body>
-              <Card.Text><span className='fs-5'>Gender:</span>{` ${item.gender ?? "N/A"}`}</Card.Text>
-              <Card.Text><span className='fs-5'>Phone:</span>{`${item.phone}` ?? "N/A"}</Card.Text>
-              <Card.Text><span className='fs-5'>Email:</span>{` ${item.email}` ?? "N/A"}</Card.Text>
-              <Card.Text><span className='fs-5'>Date of Birth:</span>{` ${getFormattedDate(item?.dob?.date)}`}</Card.Text>
-              <Card.Text><span className='fs-5'>Address:</span>{` ${`${item?.location?.city}, ${item?.location?.country}` ?? "N/A"}`}</Card.Text>
+              <Card.Text><span className='fs-7'>Gender:</span>{` ${item.gender ?? "N/A"}`}</Card.Text>
+              <Card.Text><span className='fs-7'>Phone:</span>{`${item.phone}` ?? "N/A"}</Card.Text>
+              <Card.Text><span className='fs-7'>Email:</span>{` ${item.email}` ?? "N/A"}</Card.Text>
+              <Card.Text><span className='fs-7'>Date of Birth:</span>{` ${getFormattedDate(item?.dob?.date)}`}</Card.Text>
+              <Card.Text><span className='fs-7'>Address:</span>{` ${`${item?.location?.city}, ${item?.location?.country}` ?? "N/A"}`}</Card.Text>
             </Card.Body>
           </div>
         </CardFlip>
@@ -48,7 +48,7 @@ const Index = ({ item, flippedCards = [], handleCardClick, handleDeleteProfile }
   };
 
   return (
-    <Card className={`${flippedCards.includes(item.email) ? "selected" : "mb-5"}`}  >
+    <Card className={`${flippedCards.includes(item.email) ? "selected" : ""}`}  >
       {renderCardContent()}
     </Card>
   )

@@ -62,10 +62,10 @@ const Index = () => {
   };
 
   if (error) return <div>{error}</div>
-  if (loading) return <div className="d-flex justify-content-center align-items-center" >{activeAction}</div>
+  if (loading) return <div className="d-flex justify-content-center align-items-center min-vh-100" >{activeAction}</div>
 
   return (
-    <div className="container mt-5 pt-5 ">
+    <div className="container mt-md-3 pt-5 ">
       <div className="d-flex flex-row justify-content-between ">
         <span>Users Count: {usersList?.length}</span>
         <div className="d-flex gap-2 mb-2">
@@ -86,7 +86,7 @@ const Index = () => {
       <Row className="justify-content-center ">
         {usersList?.length > 0 ? (
           usersList.map((item) => (
-            <Col md={4} sm={6} key={`user-card-${item.email}`} className="mb-4 mb-md-0" >
+            <Col lg={4} md={6} key={`user-card-${item.email}`} className="mb-4 " >
               <Card
                 item={item}
                 flippedCards={flippedCards}
@@ -96,7 +96,7 @@ const Index = () => {
               />
             </Col>
           ))) : (
-          <div className="d-flex justify-content-center align-items-center">No users found</div>
+          <div className="d-flex justify-content-center align-items-center min-vh-100">No users found</div>
         )}
       </Row>
 
